@@ -594,14 +594,14 @@
             subtitleElement.innerHTML = 'Google Student Ambassador Applicant<span class="typing-cursor"></span>';
             
             // API Configuration - REPLACE WITH YOUR ACTUAL API KEY
-            const API_KEY = 'YOUR_GEMINI_API_KEY_HERE';
+            const API_KEY = 'AIzaSyB5YRULvHk48p5OAnKshpHvPKCpQh9M1qU';
             const GEMINI_API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${API_KEY}`;
             const GEMINI_TTS_API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-tts:generateContent?key=${API_KEY}`;
             const IMAGEN_API_URL = `https://generativelanguage.googleapis.com/v1beta/models/imagen-3.0-generate-002:predict?key=${API_KEY}`;
 
             // Check if API key is configured
             function checkApiKey() {
-                if (API_KEY === 'YOUR_GEMINI_API_KEY_HERE') {
+                if (API_KEY === 'AIzaSyB5YRULvHk48p5OAnKshpHvPKCpQh9M1qU') {
                     alert('Please configure your Gemini API key to use the interactive features. See the warning message above for instructions.');
                     return false;
                 }
