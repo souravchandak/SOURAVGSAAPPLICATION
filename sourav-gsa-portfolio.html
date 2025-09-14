@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOURAV | GSA Application [Neo-Brutalist]</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        :root {
+            --accent-color: #FFFF00; /* Vibrant Yellow */
+            --dark-text: #000000;
+            --light-text: #333;
+            --bg-color: #f0f0f0;
+            --border: 3px solid #000000;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--dark-text);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            text-align: center;
+            padding: 60px 20px;
+            background-color: var(--accent-color);
+            border-bottom: var(--border);
+        }
+
+        .hero img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: var(--border);
+            box-shadow: 8px 8px 0px var(--dark-text);
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-top: 20px;
+            font-weight: 700;
+            color: var(--dark-text);
+        }
+        
+        .hero .subtitle {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: var(--dark-text);
+            min-height: 22px; 
+            background: var(--bg-color);
+            padding: 5px 10px;
+            display: inline-block;
+            margin-top: 10px;
+            border: var(--border);
+        }
+        
+        .typing-cursor {
+            display: inline-block;
+            width: 3px;
+            height: 1.2rem;
+            background-color: var(--dark-text);
+            animation: blink 0.7s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 15px auto 25px;
+            color: var(--light-text);
+        }
+        
+        .social-links a {
+            color: var(--dark-text);
+            font-size: 1.8rem;
+            margin: 0 15px;
+            transition: transform 0.2s ease;
+        }
+
+        .social-links a:hover {
+            transform: scale(1.2);
+            color: var(--dark-text);
+        }
+        
+        /* --- Section Styling --- */
+        section {
+            padding: 60px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            font-weight: 700;
+            display: inline-block;
+            border: var(--border);
+            padding: 10px 20px;
+            background-color: #fff;
+        }
+        
+        .section-title-wrapper {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        /* --- Cards Layout --- */
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 40px;
+        }
+
+        .card {
+            background: #fff;
+            padding: 30px;
+            border: var(--border);
+            box-shadow: 8px 8px 0px var(--dark-text);
+            width: 100%;
+            text-align: center;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        
+        .card:hover {
+            transform: translate(-4px, -4px);
+            box-shadow: 12px 12px 0px var(--dark-text);
+        }
+
+        .card .icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            color: var(--dark-text);
+        }
+
+        .card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 10px;
+        }
+        
+        .card ul {
+            list-style: none;
+            text-align: left;
+            padding-left: 10px;
+        }
+        
+        .card ul li {
+            margin-bottom: 10px;
+            color: var(--light-text);
+        }
+        
+        .card ul li::before {
+            content: "→";
+            color: var(--dark-text);
+            margin-right: 8px;
+            font-weight: bold;
+        }
+        
+        /* --- Gemini Feature Sections --- */
+        .gemini-section {
+            background: #fff;
+            text-align: center;
+            border-top: var(--border);
+            border-bottom: var(--border);
+        }
+
+        .gemini-button {
+            background-color: var(--accent-color);
+            color: var(--dark-text);
+            border: var(--border);
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 6px 6px 0px var(--dark-text);
+        }
+
+        .gemini-button:hover {
+            transform: translate(-3px, -3px);
+            box-shadow: 9px 9px 0px var(--dark-text);
+        }
+
+        .gemini-button:active {
+            transform: translate(6px, 6px);
+            box-shadow: none;
+        }
+        
+        .gemini-button:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+            box-shadow: none;
+            transform: none;
+        }
+        
+        .gemini-input, textarea.gemini-input {
+            width: 100%;
+            max-width: 400px;
+            padding: 15px;
+            font-size: 1.1rem;
+            font-family: 'Space Grotesk', sans-serif;
+            border: var(--border);
+            margin-bottom: 20px;
+            resize: vertical;
+        }
+
+        .loader {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid var(--dark-text);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+            display: none;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .gemini-results {
+            margin-top: 40px;
+            text-align: left;
+        }
+
+        .idea-card {
+            background-color: var(--bg-color);
+            padding: 20px;
+            margin-bottom: 15px;
+            border: var(--border);
+        }
+        
+        .idea-card h4 {
+            font-size: 1.3rem;
+            color: var(--dark-text);
+            margin-bottom: 8px;
+        }
+        
+        .idea-card p {
+            color: var(--light-text);
+            margin-bottom: 10px;
+            white-space: pre-wrap;
+        }
+
+        .idea-card .tech-stack, .idea-card ul, .idea-card .hashtags {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--dark-text);
+        }
+        
+        #image-results-container img {
+            max-width: 100%;
+            width: 512px;
+            border: var(--border);
+            margin: auto;
+            display: block;
+        }
+        
+        #qa-results-container {
+            background: var(--bg-color);
+            border: var(--border);
+            padding: 20px;
+        }
+        
+        #qa-sources {
+            margin-top: 20px;
+            font-size: 0.9rem;
+        }
+        
+        #qa-sources h5 {
+            margin-bottom: 10px;
+        }
+        
+        #qa-sources ul {
+            list-style: decimal;
+            padding-left: 20px;
+        }
+        
+        #qa-sources a {
+            color: #0000FF;
+            text-decoration: underline;
+        }
+        
+        /* --- Why Section --- */
+        #why {
+            background: var(--bg-color);
+        }
+        
+        .why-content {
+            text-align: center;
+            max-width: 800px;
+            margin: auto;
+            background-color: #fff;
+            padding: 40px;
+            border: var(--border);
+            box-shadow: 8px 8px 0px var(--dark-text);
+        }
+        
+        .why-content blockquote {
+            font-size: 1.2rem;
+            font-style: normal;
+            font-weight: 700;
+            border: none;
+            padding: 20px;
+            margin: 20px auto;
+            color: var(--dark-text);
+            background: var(--accent-color);
+        }
+
+        .why-content p {
+            margin-bottom: 15px;
+        }
+
+        .title-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        #tts-button {
+            font-size: 1rem;
+            padding: 8px 15px;
+            box-shadow: 4px 4px 0px var(--dark-text);
+        }
+        #tts-button:hover {
+            box-shadow: 6px 6px 0px var(--dark-text);
+        }
+        #tts-loader {
+            width: 20px;
+            height: 20px;
+            margin: 0;
+        }
+
+        .api-warning {
+            background-color: #fff3cd;
+            border: var(--border);
+            padding: 20px;
+            margin: 20px 0;
+            color: #856404;
+        }
+
+        .api-warning h4 {
+            margin-bottom: 10px;
+        }
+        
+        /* --- Footer --- */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: var(--dark-text);
+            color: #fff;
+        }
+        
+        /* --- Responsive Design --- */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <img src="https://placehold.co/150x150/EFEFEF/333?text=Sourav" alt="SOURAV">
+        <h1>SOURAV</h1>
+        <p class="subtitle" id="subtitle"></p>
+        <p>B.Tech Electrical Engineering | GURU JAMBESHWAR UNIVERSITY OF SCIENCE & TECHNOLOGY</p>
+        <div class="social-links">
+            <a href="mailto:souravchandak0001@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a>
+            <a href="https://www.linkedin.com/in/sourav-chandak-a99a1a250" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/souravchandak" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+        </div>
+    </header>
+
+    <main>
+        <!-- My Profile Section -->
+        <section id="profile">
+            <div class="container">
+                <div class="section-title-wrapper"><h2 class="section-title">My Profile</h2></div>
+                <div class="cards-container">
+                    <div class="card">
+                        <i class="fas fa-code icon"></i>
+                        <h3>Builder</h3>
+                        <p>A passionate engineer focused on creating hardware and software solutions, from designing an IoT-based smart home system to building a solar power tracker.</p>
+                    </div>
+                    <div class="card">
+                        <i class="fas fa-rocket icon"></i>
+                        <h3>Leader</h3>
+                        <p>Experienced in community building, having grown our university's tech club by 800% and successfully organized over 15 workshops and hackathons.</p>
+                    </div>
+                    <div class="card">
+                        <i class="fas fa-bullhorn icon"></i>
+                        <h3>Communicator</h3>
+                        <p>Skilled at demystifying complex tech topics. I thrive on empowering my peers and making technology accessible and exciting for everyone.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- My GSA Plan Section -->
+        <section id="plan">
+            <div class="container">
+                 <div class="section-title-wrapper"><h2 class="section-title">My 3-Pillar Plan</h2></div>
+                <div class="cards-container">
+                    <div class="card">
+                        <i class="fas fa-chalkboard-teacher icon"></i>
+                        <h3>Learn</h3>
+                        <ul>
+                            <li>Launch "Google Garage" hands-on workshops.</li>
+                            <li>Host study jams for Flutter & Google Cloud.</li>
+                            <li>Run bootcamps for Android development.</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <i class="fas fa-lightbulb icon"></i>
+                        <h3>Build</h3>
+                        <ul>
+                            <li>Initiate a "Solve for Hisar" hackathon.</li>
+                            <li>Build projects addressing local challenges.</li>
+                            <li>Mentor teams using Google tech stacks.</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <i class="fas fa-users icon"></i>
+                        <h3>Grow</h3>
+                        <ul>
+                            <li>Foster an inclusive and supportive tech culture.</li>
+                            <li>Establish a peer-mentorship program.</li>
+                            <li>Host "Women in Tech" inspirational sessions.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- API Key Warning -->
+        <div class="container">
+            <div class="api-warning">
+                <h4><i class="fas fa-exclamation-triangle"></i> Important Notice</h4>
+                <p>The interactive AI features below require a Gemini API key. To enable these features:</p>
+                <ol>
+                    <li>Get your free API key from <a href="https://aistudio.google.com/app/apikey" target="_blank">Google AI Studio</a></li>
+                    <li>Add your API key to the JavaScript code (search for "YOUR_GEMINI_API_KEY_HERE")</li>
+                    <li>For production use, implement proper API key security measures</li>
+                </ol>
+            </div>
+        </div>
+        
+        <!-- Gemini Feature Section 1 -->
+        <section id="gemini-hackathon" class="gemini-section">
+            <div class="container">
+                <div class="section-title-wrapper"><h2 class="section-title">GSA Plan in Action: Part 1</h2></div>
+                <p style="max-width: 600px; margin: -30px auto 30px; color: var(--light-text);">
+                    My "Solve for Hisar" initiative is ready to go. Click below and Gemini will brainstorm real, impactful hackathon ideas for our community.
+                </p>
+                <button id="gemini-hackathon-button" class="gemini-button">✨ Brainstorm Hackathon Ideas</button>
+                <div class="loader" id="hackathon-loader"></div>
+                <div id="hackathon-results" class="gemini-results"></div>
+            </div>
+        </section>
+        
+        <!-- Gemini Feature Section 2 -->
+        <section id="gemini-workshop" class="gemini-section" style="background-color: var(--bg-color);">
+             <div class="container">
+                <div class="section-title-wrapper"><h2 class="section-title">GSA Plan in Action: Part 2</h2></div>
+                <p style="max-width: 600px; margin: -30px auto 30px; color: var(--light-text);">
+                    I'm ready to teach. Enter a Google technology below and let the Gemini API design an engaging workshop plan for our "Google Garage" sessions.
+                </p>
+                <input type="text" id="workshop-input" class="gemini-input" placeholder="e.g., Firebase, Google Cloud AI...">
+                <button id="gemini-workshop-button" class="gemini-button">✨ Plan a Workshop</button>
+                <div class="loader" id="workshop-loader"></div>
+                <div id="workshop-results" class="gemini-results"></div>
+            </div>
+        </section>
+        
+        <!-- Gemini Feature Section 3 -->
+        <section id="gemini-announcement" class="gemini-section">
+             <div class="container">
+                <div class="section-title-wrapper"><h2 class="section-title">GSA Plan in Action: Part 3</h2></div>
+                <p style="max-width: 600px; margin: -30px auto 30px; color: var(--light-text);">
+                   A key GSA role is communication. Describe an event theme, and the Gemini AI will draft an exciting social media announcement for the community.
+                </p>
+                <input type="text" id="announcement-input" class="gemini-input" placeholder="e.g., Welcome back to campus event">
+                <button id="gemini-announcement-button" class="gemini-button">✨ Generate Announcement</button>
+                <div class="loader" id="announcement-loader"></div>
+                <div id="announcement-results" class="gemini-results"></div>
+            </div>
+        </section>
+
+        <!-- Gemini Feature Section 4 -->
+        <section id="gemini-image" class="gemini-section" style="background-color: var(--bg-color);">
+             <div class="container">
+                <div class="section-title-wrapper"><h2 class="section-title">GSA Plan in Action: Part 4</h2></div>
+                <p style="max-width: 600px; margin: -30px auto 30px; color: var(--light-text);">
+                   Let's get creative. Describe a campus tech event, and the Gemini API will generate a conceptual banner for it using the Imagen 3 model.
+                </p>
+                <input type="text" id="image-input" class="gemini-input" placeholder="e.g., A vibrant hackathon about AI for agriculture">
+                <button id="gemini-image-button" class="gemini-button">✨ Visualize an Event</button>
+                <div class="loader" id="image-loader"></div>
+                <div id="image-results" class="gemini-results"></div>
+            </div>
+        </section>
+        
+        <!-- Gemini Feature Section 5: NEW -->
+        <section id="gemini-mentor" class="gemini-section">
+             <div class="container">
+                <div class="section-title-wrapper"><h2 class="section-title">GSA Plan in Action: Part 5</h2></div>
+                <p style="max-width: 600px; margin: -30px auto 30px; color: var(--light-text);">
+                   A GSA is a mentor. Describe a project idea or a technical problem, and this AI mentor will provide actionable next steps and suggest relevant Google tools.
+                </p>
+                <textarea id="mentor-input" class="gemini-input" placeholder="e.g., I want to build an app for my college that shows class schedules and sends reminders..." rows="4"></textarea>
+                <button id="gemini-mentor-button" class="gemini-button">✨ Get AI Mentor Advice</button>
+                <div class="loader" id="mentor-loader"></div>
+                <div id="mentor-results" class="gemini-results"></div>
+            </div>
+        </section>
+
+        <!-- Gemini Feature Section 6 -->
+        <section id="gemini-qa" class="gemini-section" style="background-color: var(--bg-color);">
+             <div class="container">
+                <div class="section-title-wrapper"><h2 class="section-title">GSA Plan in Action: Part 6</h2></div>
+                <p style="max-width: 600px; margin: -30px auto 30px; color: var(--light-text);">
+                   This tool uses the Gemini API grounded with Google Search to answer your questions about the GSA program based on public information, with sources.
+                </p>
+                <input type="text" id="qa-input" class="gemini-input" placeholder="e.g., What are the benefits of being a GSA?">
+                <button id="gemini-qa-button" class="gemini-button">✨ Ask Gemini</button>
+                <div class="loader" id="qa-loader"></div>
+                <div id="qa-results" class="gemini-results"></div>
+            </div>
+        </section>
+
+
+        <!-- Why Me Section -->
+        <section id="why">
+            <div class="container">
+                <div class="why-content">
+                    <div class="title-container">
+                        <div class="section-title-wrapper" style="margin-bottom: 20px;"><h2 class="section-title">Why Me? Why Google?</h2></div>
+                        <button id="tts-button" class="gemini-button" title="Hear my pitch">✨ Hear My Pitch <i class="fas fa-volume-up"></i></button>
+                        <div class="loader" id="tts-loader"></div>
+                    </div>
+                    <div id="pitch-text-container">
+                        <p>Living in Hisar, I've seen firsthand the gap between local talent and global opportunities. My mission is to bridge that gap. I'm not just applying for a title; I'm applying to be a catalyst.</p>
+                        <blockquote>"For me, Google's mission to 'organize the world's information and make it universally accessible and useful' is more than just a statement. It's a call to action."</blockquote>
+                        <p>I have the proven experience, the technical skills, and an unwavering passion for community building. I am ready to bring the best of Google to my university and to bring the best of my university to Google.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 SOURAV. Created for the Google Student Ambassador Program Application.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- Typing Animation ---
+            const subtitleElement = document.getElementById('subtitle');
+            subtitleElement.innerHTML = 'Google Student Ambassador Applicant<span class="typing-cursor"></span>';
+            
+            // API Configuration - REPLACE WITH YOUR ACTUAL API KEY
+            const API_KEY = 'YOUR_GEMINI_API_KEY_HERE';
+            const GEMINI_API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${API_KEY}`;
+            const GEMINI_TTS_API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-tts:generateContent?key=${API_KEY}`;
+            const IMAGEN_API_URL = `https://generativelanguage.googleapis.com/v1beta/models/imagen-3.0-generate-002:predict?key=${API_KEY}`;
+
+            // Check if API key is configured
+            function checkApiKey() {
+                if (API_KEY === 'YOUR_GEMINI_API_KEY_HERE') {
+                    alert('Please configure your Gemini API key to use the interactive features. See the warning message above for instructions.');
+                    return false;
+                }
+                return true;
+            }
+
+            // --- Gemini API Feature 1: Hackathon Ideas ---
+            const hackathonButton = document.getElementById('gemini-hackathon-button');
+            const hackathonLoader = document.getElementById('hackathon-loader');
+            const hackathonResultsContainer = document.getElementById('hackathon-results');
+
+            hackathonButton.addEventListener('click', () => {
+                if (!checkApiKey()) return;
+                
+                const userQuery = `Generate 3 innovative and practical tech-based project ideas for a 'Solve for Hisar' university hackathon. The ideas should address common local challenges in areas like agriculture, water resource management, or empowering local small businesses in the Hisar region of Haryana, India. The target audience for the hackathon is undergraduate engineering students.`;
+                const payload = {
+                    contents: [{ parts: [{ text: userQuery }] }],
+                    generationConfig: {
+                        responseMimeType: "application/json",
+                        responseSchema: {
+                            type: "ARRAY",
+                            items: {
+                                type: "OBJECT",
+                                properties: {
+                                    title: { type: "STRING" },
+                                    description: { type: "STRING" },
+                                    googleTech: { type: "STRING" }
+                                },
+                                required: ["title", "description", "googleTech"]
+                            }
+                        }
+                    }
+                };
+                callApi(GEMINI_API_URL, payload, hackathonButton, hackathonLoader, hackathonResultsContainer, displayHackathonIdeas);
+            });
+
+            function displayHackathonIdeas(data, container) {
+                const ideas = JSON.parse(data);
+                ideas.forEach(idea => {
+                    const card = document.createElement('div');
+                    card.className = 'idea-card';
+                    card.innerHTML = `<h4>${idea.title}</h4><p>${idea.description}</p><p class="tech-stack"><strong>Suggested Google Tech:</strong> ${idea.googleTech}</p>`;
+                    container.appendChild(card);
+                });
+            }
+
+            // --- Gemini API Feature 2: Workshop Planner ---
+            const workshopButton = document.getElementById('gemini-workshop-button');
+            const workshopLoader = document.getElementById('workshop-loader');
+            const workshopResultsContainer = document.getElementById('workshop-results');
+            const workshopInput = document.getElementById('workshop-input');
+
+            workshopButton.addEventListener('click', () => {
+                if (!checkApiKey()) return;
+                
+                const topic = workshopInput.value.trim();
+                if (!topic) {
+                    alert("Please enter a Google technology topic.");
+                    return;
+                }
+                const userQuery = `Generate a creative workshop idea for university students about "${topic}". Provide a catchy title, a 2-sentence description, and 3 key learning objectives.`;
+                const payload = {
+                    contents: [{ parts: [{ text: userQuery }] }],
+                    generationConfig: {
+                        responseMimeType: "application/json",
+                        responseSchema: {
+                            type: "OBJECT",
+                            properties: {
+                                title: { type: "STRING" },
+                                description: { type: "STRING" },
+                                objectives: { type: "ARRAY", items: { type: "STRING" } }
+                            },
+                            required: ["title", "description", "objectives"]
+                        }
+                    }
+                };
+                callApi(GEMINI_API_URL, payload, workshopButton, workshopLoader, workshopResultsContainer, displayWorkshopPlan);
+            });
+
+            function displayWorkshopPlan(data, container) {
+                const plan = JSON.parse(data);
+                const objectivesHtml = plan.objectives.map(obj => `<li>${obj}</li>`).join('');
+                container.innerHTML = `<div class="idea-card"><h4>${plan.title}</h4><p>${plan.description}</p><ul>${objectivesHtml}</ul></div>`;
+            }
+
+            // --- Gemini API Feature 3: Announcement Generator ---
+            const announcementButton = document.getElementById('gemini-announcement-button');
+            const announcementLoader = document.getElementById('announcement-loader');
+            const announcementResultsContainer = document.getElementById('announcement-results');
+            const announcementInput = document.getElementById('announcement-input');
+
+            announcementButton.addEventListener('click', () => {
+                if (!checkApiKey()) return;
+                
+                const theme = announcementInput.value.trim();
+                if (!theme) {
+                    alert("Please enter a theme for the announcement.");
+                    return;
+                }
+                const userQuery = `Draft an exciting and welcoming social media announcement for a university tech community about an upcoming event with the theme: "${theme}". The tone should be energetic and inclusive. Include a catchy title, a body of text (around 50-70 words), and a string of relevant hashtags.`;
+                const payload = {
+                    contents: [{ parts: [{ text: userQuery }] }],
+                    generationConfig: {
+                        responseMimeType: "application/json",
+                        responseSchema: {
+                            type: "OBJECT",
+                            properties: {
+                                title: { type: "STRING" },
+                                body: { type: "STRING" },
+                                hashtags: { type: "STRING" }
+                            },
+                            required: ["title", "body", "hashtags"]
+                        }
+                    }
+                };
+                callApi(GEMINI_API_URL, payload, announcementButton, announcementLoader, announcementResultsContainer, displayAnnouncement);
+            });
+
+            function displayAnnouncement(data, container) {
+                const post = JSON.parse(data);
+                container.innerHTML = `<div class="idea-card"><h4>${post.title}</h4><p>${post.body}</p><p class="hashtags">${post.hashtags}</p></div>`;
+            }
+
+            // --- Gemini API Feature 4: Image Generation ---
+            const imageButton = document.getElementById('gemini-image-button');
+            const imageLoader = document.getElementById('image-loader');
+            const imageResultsContainer = document.getElementById('image-results');
+            const imageInput = document.getElementById('image-input');
+            
+            imageButton.addEventListener('click', () => {
+                if (!checkApiKey()) return;
+                
+                const userInput = imageInput.value.trim();
+                if(!userInput) {
+                    alert("Please describe the event to visualize.");
+                    return;
+                }
+                const fullPrompt = `Create a vibrant, modern, and exciting event banner for a university tech event. The banner should be eye-catching and suitable for social media. The event is: ${userInput}`;
+                const payload = { instances: [{ prompt: fullPrompt }], parameters: { "sampleCount": 1 } };
+                callApi(IMAGEN_API_URL, payload, imageButton, imageLoader, imageResultsContainer, displayImage);
+            });
+            
+            function displayImage(data, container){
+                const base64Data = data.predictions[0].bytesBase64Encoded;
+                container.innerHTML = `<div id="image-results-container"><img src="data:image/png;base64,${base64Data}" alt="AI generated event banner"></div>`;
+            }
+
+            // --- Gemini API Feature 5: AI Tech Mentor ---
+            const mentorButton = document.getElementById('gemini-mentor-button');
+            const mentorLoader = document.getElementById('mentor-loader');
+            const mentorResultsContainer = document.getElementById('mentor-results');
+            const mentorInput = document.getElementById('mentor-input');
+
+            mentorButton.addEventListener('click', () => {
+                if (!checkApiKey()) return;
+                
+                const problem = mentorInput.value.trim();
+                if (!problem) {
+                    alert("Please describe your project idea or problem.");
+                    return;
+                }
+                const userQuery = `You are a helpful and encouraging student tech mentor. A fellow student is seeking advice. Here is their project idea or problem: "${problem}". Your task is to provide 2-3 clear, actionable next steps to help them get started. For each step, provide a brief title, a description, and suggest a specific Google technology that would be a good fit.`;
+                const payload = {
+                    contents: [{ parts: [{ text: userQuery }] }],
+                    generationConfig: {
+                        responseMimeType: "application/json",
+                        responseSchema: {
+                            type: "ARRAY",
+                            items: {
+                                type: "OBJECT",
+                                properties: {
+                                    step_title: { type: "STRING" },
+                                    step_description: { type: "STRING" },
+                                    suggested_google_tool: { type: "STRING" }
+                                },
+                                required: ["step_title", "step_description", "suggested_google_tool"]
+                            }
+                        }
+                    }
+                };
+                callApi(GEMINI_API_URL, payload, mentorButton, mentorLoader, mentorResultsContainer, displayMentorAdvice);
+            });
+
+            function displayMentorAdvice(data, container) {
+                const steps = JSON.parse(data);
+                steps.forEach(step => {
+                    const card = document.createElement('div');
+                    card.className = 'idea-card';
+                    card.innerHTML = `<h4>${step.step_title}</h4><p>${step.step_description}</p><p class="tech-stack"><strong>Suggested Google Tool:</strong> ${step.suggested_google_tool}</p>`;
+                    container.appendChild(card);
+                });
+            }
+
+            // --- Gemini API Feature 6: Q&A with Search ---
+            const qaButton = document.getElementById('gemini-qa-button');
+            const qaLoader = document.getElementById('qa-loader');
+            const qaResultsContainer = document.getElementById('qa-results');
+            const qaInput = document.getElementById('qa-input');
+
+            qaButton.addEventListener('click', () => {
+                if (!checkApiKey()) return;
+                
+                const question = qaInput.value.trim();
+                 if (!question) {
+                    alert("Please enter a question.");
+                    return;
+                }
+                const payload = { contents: [{ parts: [{ text: question }] }], tools: [{ "google_search": {} }] };
+                callApi(GEMINI_API_URL, payload, qaButton, qaLoader, qaResultsContainer, displayQAResponse, 'candidate');
+            });
+
+            function displayQAResponse(candidate, container) {
+                const answer = candidate.content.parts[0].text;
+                const sources = candidate.groundingMetadata?.groundingAttributions || [];
+                let sourcesHtml = '';
+                if(sources.length > 0) {
+                    const sourceItems = sources.map(source => `<li><a href="${source.web.uri}" target="_blank">${source.web.title}</a></li>`).join('');
+                    sourcesHtml = `<div id="qa-sources"><h5>Sources:</h5><ul>${sourceItems}</ul></div>`
+                }
+                container.innerHTML = `<div id="qa-results-container"><p>${answer.replace(/\n/g, '<br>')}</p>${sourcesHtml}</div>`;
+            }
+
+            // --- Gemini API Feature 7: Text-to-Speech Pitch ---
+            const ttsButton = document.getElementById('tts-button');
+            const ttsLoader = document.getElementById('tts-loader');
+            const pitchContainer = document.getElementById('pitch-text-container');
+            
+            ttsButton.addEventListener('click', () => {
+                if (!checkApiKey()) return;
+                
+                const pitchTextElements = pitchContainer.querySelectorAll('p, blockquote');
+                let pitchText = Array.from(pitchTextElements).map(el => el.textContent).join(' ');
+
+                const prompt = `Read the following text in a confident, inspiring, and professional tone for an application: ${pitchText}`;
+                
+                const payload = {
+                    contents: [{ parts: [{ text: prompt }] }],
+                    generationConfig: { responseModalities: ["AUDIO"], speechConfig: { voiceConfig: { prebuiltVoiceConfig: { voiceName: "Sadaltager" } } } },
+                    model: "gemini-2.5-flash-preview-tts"
+                };
+                callApi(GEMINI_TTS_API_URL, payload, ttsButton, ttsLoader, null, playAudio, 'candidate');
+            });
+
+            function playAudio(candidate) {
+                const audioData = candidate.content?.parts?.[0]?.inlineData?.data;
+                if (audioData) {
+                    const pcmData = base64ToArrayBuffer(audioData);
+                    const pcm16 = new Int16Array(pcmData);
+                    const wavBlob = pcmToWav(pcm16, 24000); 
+                    const audioUrl = URL.createObjectURL(wavBlob);
+                    const audio = new Audio(audioUrl);
+                    audio.play();
+                } else { throw new Error("No audio data in API response."); }
+            }
+
+
+            // --- Generic API Caller Function ---
+            async function callApi(apiUrl, payload, button, loader, container, displayFn, resultType = 'text') {
+                button.disabled = true;
+                loader.style.display = 'block';
+                if(container) container.innerHTML = '';
+                
+                try {
+                    // Exponential backoff
+                    let response;
+                    let delay = 1000;
+                    for (let i = 0; i < 5; i++) {
+                        response = await fetch(apiUrl, {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(payload)
+                        });
+                        if (response.ok) {
+                            break;
+                        }
+                        if (response.status === 429) { // Throttling
+                           await new Promise(resolve => setTimeout(resolve, delay));
+                           delay *= 2;
+                        } else {
+                           throw new Error(`API call failed: ${response.status}`);
+                        }
+                    }
+
+                    if (!response.ok) throw new Error(`API call failed after retries: ${response.status}`);
+                    
+                    const result = await response.json();
+                    
+                    let dataToDisplay;
+                    if (resultType === 'candidate') {
+                        dataToDisplay = result.candidates?.[0];
+                        if (!dataToDisplay) throw new Error("Invalid API response: Candidate missing.");
+                    } else if (apiUrl.includes('predict')) { // Imagen
+                        dataToDisplay = result;
+                         if (!result.predictions?.[0]?.bytesBase64Encoded) throw new Error("Invalid API response: Image data missing.");
+                    } else { // Default to text content
+                        dataToDisplay = result.candidates?.[0]?.content?.parts?.[0]?.text;
+                        if (!dataToDisplay) throw new Error("Invalid API response: Text data missing.");
+                    }
+                    
+                    displayFn(dataToDisplay, container);
+
+                } catch (error) {
+                    console.error("API Error:", error);
+                    const errorHtml = `<p style="color: #DB4437; text-align: center; border: var(--border); padding: 10px; background: #fff;">Sorry, something went wrong. Please try again.</p>`;
+                    if(container) container.innerHTML = errorHtml;
+                    else alert("Sorry, something went wrong with the request.");
+                } finally {
+                    loader.style.display = 'none';
+                    button.disabled = false;
+                }
+            }
+            
+            // --- Audio Helper Functions ---
+            function base64ToArrayBuffer(base64) {
+                const binaryString = window.atob(base64);
+                const len = binaryString.length;
+                const bytes = new Uint8Array(len);
+                for (let i = 0; i < len; i++) { bytes[i] = binaryString.charCodeAt(i); }
+                return bytes.buffer;
+            }
+
+            function pcmToWav(pcmData, sampleRate) {
+                const numChannels = 1, bytesPerSample = 2, blockAlign = numChannels * bytesPerSample;
+                const byteRate = sampleRate * blockAlign, dataSize = pcmData.length * bytesPerSample;
+                const buffer = new ArrayBuffer(44 + dataSize);
+                const view = new DataView(buffer);
+                writeString(view, 0, 'RIFF');
+                view.setUint32(4, 36 + dataSize, true);
+                writeString(view, 8, 'WAVE');
+                writeString(view, 12, 'fmt ');
+                view.setUint32(16, 16, true);
+                view.setUint16(20, 1, true);
+                view.setUint16(22, numChannels, true);
+                view.setUint32(24, sampleRate, true);
+                view.setUint32(28, byteRate, true);
+                view.setUint16(32, blockAlign, true);
+                view.setUint16(34, 16, true);
+                writeString(view, 36, 'data');
+                view.setUint32(40, dataSize, true);
+                for (let i = 0; i < pcmData.length; i++) { view.setInt16(44 + i * 2, pcmData[i], true); }
+                return new Blob([view], { type: 'audio/wav' });
+            }
+            
+            function writeString(view, offset, string) {
+                for (let i = 0; i < string.length; i++) { view.setUint8(offset + i, string.charCodeAt(i)); }
+            }
+        });
+    </script>
+
+</body>
+</html>
